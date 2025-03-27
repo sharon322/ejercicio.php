@@ -1,33 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicios en PHP</title>
 </head>
 <body>
-    <?php
-        for ($num = 2; $num <= 100; $num++) {
-            $isPrime = true;
-            
-            for ($i = 2; $i <= $num /2; $i++) {
-                if ($num % $i == 0) {
-                    $isPrime = false;
+    <h1>Números Primos del 1 al 1000</h1>
+    <p>
+        <?php
+        for ($num = 2; $num <= 1000; $num++) {
+            $esPrimo = true;
+            for ($j = 2; $j * $j <= $num; $j++) {
+                if ($num % $j == 0) {
+                    $esPrimo = false;
                     break;
+                }
             }
-            }
-            if ($isPrime) {
-            echo $num . " ";
-            }
+            if ($esPrimo) echo "$num ";
         }
-        echo "<br />";
-
+        ?>
+    </p>
+    
+    <h1>Figura en Pantalla</h1>
+    <pre>
+        <?php
         $n = 5;
-        for ($i = 1; $i <= $n; $i++) {
-            echo str_repeat('*', $i) . "\n";
-        }
-        for ($i = $n - 1; $i >= 1; $i--) {
-            echo str_repeat('*', $i) . "\n";}
-    ?>
-</body> 
+        for ($i = 1; $i <= $n; $i++) echo str_repeat("*", $i) . "\n";
+        echo str_repeat("+", $n + 1) . "\n";
+        for ($i = $n; $i >= 1; $i--) echo str_repeat("*", $i) . "\n";
+        ?>
+    </pre>
+</body>
 </html>
